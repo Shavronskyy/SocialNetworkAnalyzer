@@ -8,12 +8,13 @@ namespace SocialAnalyzer.Controllers
     {
         public IActionResult Index()
         {
-            //GetMainInfo.GetName("https://www.tiktok.com/@alastor_alina");
-            //if(user == null)
-            //{
-            //    ViewBag.UserName = "user is null";
-            //} else
-            //ViewBag.UserName = user.userName;
+            string username = GetMainInfo.GetName("https://www.tiktok.com/@alastor_alina").Result.ToString();
+            if (username == null)
+            {
+                ViewBag.UserName = "user is null";
+            }
+            else
+                ViewBag.UserName = username;
 
             return View();
         }
