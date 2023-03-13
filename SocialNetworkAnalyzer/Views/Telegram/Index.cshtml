@@ -1,0 +1,19 @@
+﻿@model SocialAnalyzer.models.TelegramUser;
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+<div style ="width: 100%">
+    <div style="float: left">
+    <img src="@Model.userImg" class="box-160-280 rounded-circle img-thumbnail" />
+    </div>
+    <div class="float: left">
+    <h1>@Model.userName</h1>
+    <h2>@Model.userDescription</h2>
+    </div>
+</div>
+<div style="float: right" class="followersBox">
+    <h1>Followers:@Model.userSumFollowers </h1>
+    <h7 style="color:red">@Model.userFollowersToday Today</h7><br />
+    <h7 style="color:red">@Model.userFollowersWeek Week</h7><br />
+    <h7 style="color:red">@Model.userFollowersMonth Month</h7>
+</div>
+

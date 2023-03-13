@@ -1,18 +1,16 @@
-﻿@model SocialAnalyzer.models.TikTokUser;
+﻿@model SocialNetworkAnalyzer.Models.InstagramUser
 <div style="width:100%">
     <div style="float: left">
         <img src="@Model.userImg" class="box-160-280 rounded-circle img-thumbnail" />
     </div>
     <div style="float: left">
-        <h1>@@@Model.userTitle</h1>
-        <h2>@Model.userSubtitle</h2>
+        <h1>@@@Model.userName</h1>
         <h7>@Model.userDescription</h7>
     </div>
 </div>
 <div>
     <table>
-        <tr> Followers:@Model.userSumFollowers </tr>
-        <tr> Likes count:@Model.userSumLikes </tr>
+        <tr> Followers:@Model.userFollowers</tr>
     </table>
 </div>
 

@@ -1,21 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SocialAnalyzer.models;
 using SocialAnalyzer.services.TikTok;
-using SocialNetworkAnalyzer.Models;
 
-namespace SocialAnalyzer.Controllers
+namespace SocialNetworkAnalyzer.Controllers
 {
-    public class TikTokController : Controller
+    public class TelegramController : Controller
     {
         public IActionResult Index()
         {
-            TikTokUser user = GetMainTikTokInfo.GetName("https://www.tiktok.com/@sternenko").Result;
+            TelegramUser user = GetMainTelegramInfo.GetName("https://uk.tgstat.com/en/channel/@V_Zelenskiy_official/stat").Result;
             if (user == null)
             {
                 return View("Shared/Error");
             }
             else
-            return View(user);
+                return View(user);
         }
     }
 }

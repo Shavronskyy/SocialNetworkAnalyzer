@@ -2,20 +2,21 @@
 using SocialAnalyzer.models;
 using SocialAnalyzer.services.TikTok;
 using SocialNetworkAnalyzer.Models;
+using SocialNetworkAnalyzer.Services.Instagram;
 
-namespace SocialAnalyzer.Controllers
+namespace SocialNetworkAnalyzer.Controllers
 {
-    public class TikTokController : Controller
+    public class InstagramController : Controller
     {
         public IActionResult Index()
         {
-            TikTokUser user = GetMainTikTokInfo.GetName("https://www.tiktok.com/@sternenko").Result;
+            InstagramUser user = GetMainInstagramInfo.GetName("https://www.instagram.com/shavronskyy/").Result;
             if (user == null)
             {
                 return View("Shared/Error");
             }
             else
-            return View(user);
+                return View(user);
         }
     }
 }
