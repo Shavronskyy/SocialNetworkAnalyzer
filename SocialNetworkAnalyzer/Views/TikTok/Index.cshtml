@@ -1,6 +1,18 @@
-﻿<h1>User name: @ViewBag.UserName </h1>
-<table>
-    <tr> Followers: </tr>
-    <tr> Likes count: </tr>
-    <tr> Subscribers: </tr>
-</table>
+﻿@model SocialAnalyzer.models.TikTokUser;
+<div style="width:100%">
+    <div style="float: left">
+        <img src="@Model.userImg" class="box-160-280 rounded-circle img-thumbnail" />
+    </div>
+    <div style="float: left">
+        <h1>@@@Model.userTitle</h1>
+        <h2>@Model.userSubtitle</h2>
+        <h7>@Model.userDescription</h7>
+    </div>
+</div>
+<div>
+    <table>
+        <tr> Followers:@Model.userSumFollowers </tr>
+        <tr> Likes count:@Model.userSumLikes </tr>
+    </table>
+</div>
+

@@ -20,3 +20,9 @@ html {
 body {
   margin-bottom: 60px;
 }
+.box-160-280 {
+    min-width: 160px;
+    min-height: 160px;
+    max-width: 280px;
+    max-height: 280px;
+}
