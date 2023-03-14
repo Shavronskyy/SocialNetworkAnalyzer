@@ -335,3 +335,8 @@ body {
 .followersBox{
     background-color: rgba(0,0,0,0.2);
 }
+.box {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}

@@ -1,5 +1,5 @@
 ﻿@model SocialAnalyzer.models.TikTokUser;
-<div style="width:100%">
+<div style="width:100%" class="box">
     <div style="float: left">
         <img src="@Model.userImg" class="box-160-280 rounded-circle img-thumbnail" />
     </div>
@@ -9,10 +9,13 @@
         <h7>@Model.userDescription</h7>
     </div>
 </div>
-<div>
+<div class="box">
     <table>
-        <tr> Followers:@Model.userSumFollowers </tr>
-        <tr> Likes count:@Model.userSumLikes </tr>
+        <tr>Слідкувачі:@Model.userSumFollowers </tr>
+        <tr>Уподобання:@Model.userSumLikes </tr>
+        <tr>Слідкування</tr>
     </table>
 </div>
-
+<div class="box">
+    <h4>Videos</h4>
+</div>
