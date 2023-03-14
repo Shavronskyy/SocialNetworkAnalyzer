@@ -4,7 +4,7 @@
         <img src="@Model.userImg" class="box-160-280 rounded-circle img-thumbnail" />
     </div>
     <div style="float: left">
-        <h1>@@@Model.userTitle</h1>
+        <h1>@Model.userTitle</h1>
         <h2>@Model.userSubtitle</h2>
         <h7>@Model.userDescription</h7>
     </div>
@@ -17,5 +17,13 @@
     </table>
 </div>
 <div class="box">
-    <h4>Videos</h4>
+    <h4>Відео</h4>
+    <div class="videos-div">
+        @foreach (var video in Model.videos)
+        {
+            <div>
+                <p>@video.Title</p>
+            </div>
+        }
+    </div>
 </div>

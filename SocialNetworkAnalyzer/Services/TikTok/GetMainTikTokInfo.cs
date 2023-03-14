@@ -11,6 +11,7 @@ using System.Collections;
 using System.Reflection.Metadata;
 using System.Xml.Linq;
 using HtmlAgilityPack;
+using SocialNetworkAnalyzer.Services.TikTok;
 
 namespace SocialAnalyzer.services.TikTok
 {
@@ -32,6 +33,7 @@ namespace SocialAnalyzer.services.TikTok
                 user.userImg = doc.DocumentNode.SelectNodes(".//img[@class='tiktok-1zpj2q-ImgAvatar e1e9er4e1']")
                     .First()
                     .Attributes["src"].Value;
+                user.videos = GetTikTokVideos.GetListOfVideos(url).Result;
             }
             catch (Exception ex)
             {
