@@ -16,14 +16,8 @@
         <tr>Слідкування</tr>
     </table>
 </div>
-<div class="box">
-    <h4>Відео</h4>
-    <div class="videos-div">
-        @foreach (var video in Model.videos)
-        {
-            <div>
-                <p>@video.Title</p>
-            </div>
-        }
+<div class="box" style="float:right">
+    <div class="videos-div awgvideo">
+        <p>Середня кількість переглядів:@Model.userAwgViews </p>
     </div>
 </div>
