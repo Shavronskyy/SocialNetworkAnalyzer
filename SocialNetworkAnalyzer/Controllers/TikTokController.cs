@@ -7,9 +7,10 @@ namespace SocialAnalyzer.Controllers
 {
     public class TikTokController : Controller
     {
-        public IActionResult Index()
+        [HttpPost]
+        public IActionResult Index(string name)
         {
-            TikTokUser user = GetMainTikTokInfo.GetName("https://www.tiktok.com/@misha.lebiga").Result;
+            TikTokUser user = GetMainTikTokInfo.GetName("https://www.tiktok.com/@" + name).Result;
             if (user == null)
             {
                 return View("Shared/Error");
@@ -17,5 +18,6 @@ namespace SocialAnalyzer.Controllers
             else
             return View(user);
         }
+
     }
 }

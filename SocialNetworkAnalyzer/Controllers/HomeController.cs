@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SocialAnalyzer.Controllers;
 using SocialNetworkAnalyzer.Models;
 using System.Diagnostics;
 
@@ -17,7 +18,6 @@ namespace SocialNetworkAnalyzer.Controllers
         {
             return View();
         }
-
         public IActionResult Privacy()
         {
             return View();

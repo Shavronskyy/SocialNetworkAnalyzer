@@ -11,7 +11,7 @@ namespace SocialNetworkAnalyzer.Controllers
         public async Task<IActionResult> UseChatGPT(string query)
         {
             string OutPutResult = "";
-            var openai = new OpenAIAPI("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");
+            var openai = new OpenAIAPI("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");
             CompletionRequest completionRequest = new CompletionRequest();
             completionRequest.Prompt = query;
             completionRequest.Model = OpenAI_API.Models.Model.DavinciText;
