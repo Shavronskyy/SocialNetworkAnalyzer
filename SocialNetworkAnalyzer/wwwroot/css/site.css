@@ -343,3 +343,45 @@ body {
 .awgvideo {
     background-color: rgba(0,0,0,0.2);
 }
+.Inner-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-gap: 5px;
+}
+.Inner-grid div {
+background: lightgreen;
+padding: 8px;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.section {
+    width: 48%;
+    margin-bottom: 20px;
+    background-color: dimgray;
+}
+.search-form {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+    .search-form input[type="text"] {
+        flex: 1;
+        border: none;
+        margin-right: 10px;
+        padding: 5px;
+    }
+
+    .search-form button[type="submit"] {
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
