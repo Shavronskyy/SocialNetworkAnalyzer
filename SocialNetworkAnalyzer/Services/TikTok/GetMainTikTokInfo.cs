@@ -32,22 +32,10 @@ namespace SocialAnalyzer.services.TikTok
                 user.userImg = doc.DocumentNode.SelectNodes(".//img[@class='tiktok-1zpj2q-ImgAvatar e1e9er4e1']")
                     .First()
                     .Attributes["src"].Value;
-                var awgVideoViews = doc.DocumentNode.SelectNodes(".//strong[@data-e2e='video-views']");
-                List<int> viewsCount = new List<int>();
-                foreach (var views in awgVideoViews)
-                {
-                    int num = 0;
-                    if (int.TryParse(views.InnerText.Replace(".", "").Replace("K", ""), out num))
-                    {
-                        num *= 100;
-                        viewsCount.Add(num);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Unable to parse input string.");
-                    }
-                }
-                user.userAwgViews = viewsCount.Average();
+                var VideoViews = doc.DocumentNode.SelectNodes(".//strong[@data-e2e='video-views']");
+                
+                AvgViews vs = new AvgViews();
+                user.userAwgViews = vs.GetAvgViews(VideoViews);
                 //user.videos = GetTikTokVideos.GetListOfVideos(url).Result;
             }
             catch (Exception ex)
