@@ -17,15 +17,16 @@ namespace SocialAnalyzer.services.TikTok
                 user.userTitle = doc.DocumentNode.SelectSingleNode(".//h2[@data-e2e='user-title']").InnerText;
                 user.userSubtitle = doc.DocumentNode.SelectSingleNode(".//h1[@data-e2e='user-subtitle']").InnerText;
                 user.userSumFollowers = doc.DocumentNode.SelectSingleNode(".//strong[@data-e2e='followers-count']").InnerText;
+                user.userFollowing = doc.DocumentNode.SelectSingleNode("//*[@id=\"main-content-others_homepage\"]/div/div[1]/h3/div[1]/strong").InnerText;
                 user.userDescription = doc.DocumentNode.SelectSingleNode(".//h2[@data-e2e='user-bio']").InnerText;
                 user.userSumLikes = doc.DocumentNode.SelectSingleNode(".//strong[@data-e2e='likes-count']").InnerText;
                 user.userImg = doc.DocumentNode.SelectNodes(".//img[@class='tiktok-1zpj2q-ImgAvatar e1e9er4e1']")
                     .First()
                     .Attributes["src"].Value;
                 var VideoViews = doc.DocumentNode.SelectNodes(".//strong[@data-e2e='video-views']");
-                AvgViews vs = new AvgViews();
-                user.userAwgViews = vs.GetAvgViews(VideoViews);
+                user.userAwgViews = AvgViews.GetAvgViews(VideoViews);
                 user.userAwgLikes = AvgLikes.GetAvgLikes(url);
+                user.userAwgComments = AvgComments.GetAvgComments(url);
                 //user.userLastMonthFollowers = LastFollowers.GetLastMonthFollowersCount(name);
 
             }

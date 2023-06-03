@@ -8,7 +8,7 @@ namespace SocialNetworkAnalyzer.Services.TikTok
 {
     public class AvgViews
     {
-        public int GetAvgViews(HtmlNodeCollection videoViews)
+        public static int GetAvgViews(HtmlNodeCollection videoViews)
         {
             List<int> avgViewsCount = new List<int>();
             foreach (var views in videoViews)
@@ -26,7 +26,7 @@ namespace SocialNetworkAnalyzer.Services.TikTok
             }  
             return (int)avgViewsCount.Average();
         }
-        public int ViewsHaveKEnding(string views)
+        public static int ViewsHaveKEnding(string views)
         {
             int num;
             bool containDot = true;
@@ -40,7 +40,7 @@ namespace SocialNetworkAnalyzer.Services.TikTok
             }
             return num;
         }
-        public int ViewsHaveMEnding(string views)
+        public static int ViewsHaveMEnding(string views)
         {
             int num;
             bool containDot = true;

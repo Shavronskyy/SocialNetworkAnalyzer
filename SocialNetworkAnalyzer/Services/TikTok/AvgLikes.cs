@@ -21,7 +21,7 @@ namespace SocialNetworkAnalyzer.Services.TikTok
                     HtmlWeb web = new HtmlWeb();
                     HtmlDocument doc = web.Load(link);
                     var likes = doc.DocumentNode.SelectSingleNode(".//button[@class='tiktok-nmbm7z-ButtonActionItem edu4zum0']//strong[@data-e2e='like-count']").InnerText;
-                    if (likes[likes.Length - 1] == 'K')
+                    if (likes.EndsWith('K'))
                     {
                         likesList.Add(LikesHaveKEnding(likes));
                     }
