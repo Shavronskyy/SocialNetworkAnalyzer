@@ -8,7 +8,6 @@ namespace SocialNetworkAnalyzer.Services.TikTok
         public static async Task<List<TikTokVideo>> GetListOfVideos(string url)
         {
             List<TikTokVideo> listOfVideos = new List<TikTokVideo>();
-            string username = "null";
             try
             {
                 HtmlWeb web = new HtmlWeb();

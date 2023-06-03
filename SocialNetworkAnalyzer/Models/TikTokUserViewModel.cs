@@ -9,6 +9,8 @@
         public string userDescription { get; set; }
         public string userImg { get; set; }
         public int userAwgViews { get; set; }
+        public int userAwgLikes { get; set; }
+        public string userLastMonthFollowers { get; set; }
         public List<TikTokVideo> videos { get; set; }
     }
 }

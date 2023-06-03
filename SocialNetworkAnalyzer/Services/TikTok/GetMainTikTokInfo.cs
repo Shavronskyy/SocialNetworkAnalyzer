@@ -1,15 +1,4 @@
 ﻿using SocialAnalyzer.models;
-using System.Net.Http;
-using System;
-using AngleSharp.Html.Parser;
-using AngleSharp;
-using System.Net;
-using AngleSharp.Dom;
-using System.Linq;
-using static System.Net.Mime.MediaTypeNames;
-using System.Collections;
-using System.Reflection.Metadata;
-using System.Xml.Linq;
 using HtmlAgilityPack;
 using SocialNetworkAnalyzer.Services.TikTok;
 
@@ -17,8 +6,9 @@ namespace SocialAnalyzer.services.TikTok
 {
     public class GetMainTikTokInfo
     {
-        public static async Task<TikTokUser> GetName(string url)
+        public static async Task<TikTokUser> GetName(string name)
         {
+            string url = ("https://www.tiktok.com/@" + name);
             TikTokUser user = new TikTokUser();
             try
             {
@@ -33,10 +23,11 @@ namespace SocialAnalyzer.services.TikTok
                     .First()
                     .Attributes["src"].Value;
                 var VideoViews = doc.DocumentNode.SelectNodes(".//strong[@data-e2e='video-views']");
-                
                 AvgViews vs = new AvgViews();
                 user.userAwgViews = vs.GetAvgViews(VideoViews);
-                //user.videos = GetTikTokVideos.GetListOfVideos(url).Result;
+                user.userAwgLikes = AvgLikes.GetAvgLikes(url);
+                //user.userLastMonthFollowers = LastFollowers.GetLastMonthFollowersCount(name);
+
             }
             catch (Exception ex)
             {

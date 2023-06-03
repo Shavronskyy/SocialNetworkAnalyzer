@@ -10,7 +10,7 @@ namespace SocialAnalyzer.Controllers
         [HttpPost]
         public IActionResult Index(string name)
         {
-            TikTokUser user = GetMainTikTokInfo.GetName("https://www.tiktok.com/@" + name).Result;
+            TikTokUser user = GetMainTikTokInfo.GetName(name).Result;
             if (user == null)
             {
                 return View("Shared/Error");
