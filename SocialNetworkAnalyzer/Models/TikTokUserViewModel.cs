@@ -12,6 +12,7 @@
         public int userAwgViews { get; set; }
         public int userAwgLikes { get; set; }
         public int userAwgComments { get; set; }
+        public int userAwgViewsToLikes { get; set; }
         public string userLastMonthFollowers { get; set; }
         public List<TikTokVideo> videos { get; set; }
     }

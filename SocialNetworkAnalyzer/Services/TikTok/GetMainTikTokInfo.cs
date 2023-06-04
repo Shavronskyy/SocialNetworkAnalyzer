@@ -23,10 +23,10 @@ namespace SocialAnalyzer.services.TikTok
                 user.userImg = doc.DocumentNode.SelectNodes(".//img[@class='tiktok-1zpj2q-ImgAvatar e1e9er4e1']")
                     .First()
                     .Attributes["src"].Value;
-                var VideoViews = doc.DocumentNode.SelectNodes(".//strong[@data-e2e='video-views']");
-                user.userAwgViews = AvgViews.GetAvgViews(VideoViews);
+                user.userAwgViews = AvgViews.GetAvgViews(url);
                 user.userAwgLikes = AvgLikes.GetAvgLikes(url);
                 user.userAwgComments = AvgComments.GetAvgComments(url);
+                user.userAwgViewsToLikes = AvgLikesToViews.LikesToViews(url);
                 //user.userLastMonthFollowers = LastFollowers.GetLastMonthFollowersCount(name);
 
             }
