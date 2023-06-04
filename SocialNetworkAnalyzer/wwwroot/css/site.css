@@ -1,4 +1,4 @@
-p {
+п»їp {
     font-family: "Webly Sleek SemiLight",Helvetica-,droid sans,sans-serif;
     font-weight: normal;
     margin: 0 0 1rem;
@@ -366,8 +366,7 @@ padding: 8px;
 .search-field {
     position: relative;
 }
-
-    /* Стилізація текстового поля */
+    /* РЎС‚РёР»С–Р·Р°С†С–СЏ С‚РµРєСЃС‚РѕРІРѕРіРѕ РїРѕР»СЏ */
     .search-field input[type="text"] {
         padding: 10px;
         border: 1px solid #ccc;
@@ -376,7 +375,7 @@ padding: 8px;
         height: 50px;
     }
 
-    /* Стилізація кнопки пошуку */
+    /* РЎС‚РёР»С–Р·Р°С†С–СЏ РєРЅРѕРїРєРё РїРѕС€СѓРєСѓ */
     .search-button {
         position: center;
         top: 0;
@@ -389,12 +388,17 @@ padding: 8px;
         cursor: pointer;
     }
 
-        /* Змінюємо вигляд кнопки при наведенні */
+        /* Р—РјС–РЅСЋС”РјРѕ РІРёРіР»СЏРґ РєРЅРѕРїРєРё РїСЂРё РЅР°РІРµРґРµРЅРЅС– */
         .search-button:hover {
             background-color: #0056b3;
         }
 
-        /* Змінюємо вигляд кнопки при натисканні */
+        /* Р—РјС–РЅСЋС”РјРѕ РІРёРіР»СЏРґ РєРЅРѕРїРєРё РїСЂРё РЅР°С‚РёСЃРєР°РЅРЅС– */
         .search-button:active {
             background-color: #004080;
         }
+.mainTextDiv {
+    position:center;
+}
+.mainText{
+}

@@ -1,4 +1,6 @@
-﻿using HtmlAgilityPack;
+﻿using AngleSharp.Css;
+using HtmlAgilityPack;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
 using System;
 
@@ -6,40 +8,52 @@ namespace SocialNetworkAnalyzer.Services.TikTok
 {
     public class AvgViews
     {
-        public int GetAvgViews(HtmlNodeCollection videoViews)
+        public static int GetAvgViews(string url)
         {
+            HtmlWeb web = new HtmlWeb();
+            HtmlDocument doc = web.Load(url);
+            var videoViews = doc.DocumentNode.SelectNodes(".//strong[@data-e2e='video-views']");
             List<int> avgViewsCount = new List<int>();
             foreach (var views in videoViews)
             {
-                if (views.InnerText.EndsWith('K'))
+                string view = views.InnerText;
+                if (view.EndsWith('K'))
                 {
-                    avgViewsCount.Add(ViewsHaveKEnding(views));
+                    avgViewsCount.Add(ViewsHaveKEnding(view));
                 }
-                else if (!views.InnerText.EndsWith('K'))
+                else if (view.EndsWith('M'))
                 {
-                    avgViewsCount.Add(Convert.ToInt32(views.InnerText));
-                } else if (views.InnerText.EndsWith('M'))
-                {
-                    avgViewsCount.Add(ViewsHaveMEnding(views));
+                    avgViewsCount.Add(ViewsHaveMEnding(view));
                 }
+                else avgViewsCount.Add(Convert.ToInt32(view));
             }  
             return (int)avgViewsCount.Average();
         }
-        public int ViewsHaveKEnding(HtmlNode views)
+        public static int ViewsHaveKEnding(string views)
         {
-            int num = 0;
-            if (int.TryParse(views.InnerText.Replace(".", "").Replace("K", ""), out num))
+            int num;
+            bool containDot = true;
+            if (!views.Contains('.'))
             {
-                num *= 100;
+                containDot = true;
+            }
+            if (int.TryParse(views.Replace(".", "").Replace("K", ""), out num))
+            {
+                num = containDot ? num *= 100 : num *= 1000;
             }
             return num;
         }
-        public int ViewsHaveMEnding(HtmlNode views)
+        public static int ViewsHaveMEnding(string views)
         {
-            int num = 0;
-            if (int.TryParse(views.InnerText.Replace(".", "").Replace("M", ""), out num))
+            int num;
+            bool containDot = true;
+            if (!views.Contains('.'))
             {
-                num *= 100000;
+                containDot = true;
+            }
+            if (int.TryParse(views.Replace(".", "").Replace("M", ""), out num))
+            {
+                num = containDot ? num *= 100000 : num *= 1000000;
             }
             return num;
         }
