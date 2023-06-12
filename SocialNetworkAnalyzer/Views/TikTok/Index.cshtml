@@ -1,7 +1,9 @@
 ﻿@model SocialAnalyzer.models.TikTokUser;
+@using SocialNetworkAnalyzer.Services.OpenAI
+
 <div style="width:100%" class="box">
     <div style="float: left">
-        <img src="@Model.userImg" class="box-160-280 rounded-circle img-thumbnail" />
+        <img src="@Model.userImg" class="box-160-280 rounded-circle img-thumbnail user-img" />
     </div>
     <div style="float: left">
         <h1>@Model.userTitle</h1>
@@ -9,7 +11,7 @@
         <h7>@Model.userDescription</h7>
     </div>
 </div>
-<div class="box">
+<div class="box info-div">
     <table>
         <tr>Слідкувачі: @Model.userSumFollowers </tr>
         <tr>Уподобання: @Model.userSumLikes </tr>
@@ -19,18 +21,22 @@
 <div class="container">
     <div class="section">
         <h2>Перегляди відео</h2>
-        <p>Середні перегляди відео: @Model.userAwgViews</p>
+        <p>Середні перегляди відео: @Model.userAvgViews</p>
     </div>
     <div class="section">
-        <h2>Середні показники на відео</h2>
-        <p>Середня кількість вподобаннь на 100 відео: @Model.userAwgViewsToLikes</p>
+        <h2>Середні показники на 100 переглядів</h2>
+        <p>Середня кількість вподобаннь на 100 переглядів: @Model.userAvgViewsToLikes</p>
     </div>
     <div class="section">
-        <h2>Вподобання</h2>
-        <p>Середні вподобання відео: @Model.userAwgLikes</p>
+        <h2>Залучення користувача</h2>
+        <p>Показник залученості користувача: @Model.userAvgEngagement %</p>
     </div>
     <div class="section">
         <h2>Коментарі</h2>
-        <p>Середня кількість коментарів: @Model.userAwgComments</p>
+        <p>Середня кількість коментарів: @Model.userAvgComments</p>
     </div>
+</div>
+<div>
+    <h4>Порада ChatGPT</h4>
+    <p>@UseGPT.UseChatGPT("hello, how are you?").Result</p>
 </div>

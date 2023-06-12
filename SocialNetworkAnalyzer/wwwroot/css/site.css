@@ -353,25 +353,30 @@ background: lightgreen;
 padding: 8px;
 }
 .container {
-    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    /*display: grid;
+    grid-template-columns: 800px 800px;*/ /* set column sizes here */
+    /*grid-template-rows: 130px 130px;*/ /* we want two rows */
+    /*background-color: #d9dade;
+    height: 889px;*/
 }
 
 .section {
     width: 48%;
     margin-bottom: 20px;
-    background-color: dimgray;
+    background-color: #deddd9;
 }
 .search-field {
     position: relative;
+    width: 800px;
 }
     /* Стилізація текстового поля */
     .search-field input[type="text"] {
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 10px;
-        width: 500px;
+        width: 650px;
         height: 50px;
     }
 
@@ -381,24 +386,52 @@ padding: 8px;
         top: 0;
         right: 0;
         padding: 10px 15px;
-        background-color: #007bff;
-        color: #fff;
+/*        background-color: #3e3e3e;
+        color: #fff;*/
         border: none;
         border-radius: 20px;
         cursor: pointer;
     }
 
         /* Змінюємо вигляд кнопки при наведенні */
-        .search-button:hover {
-            background-color: #0056b3;
-        }
+        /*.search-button:hover {
+            background-color: #767474;
+        }*/
 
         /* Змінюємо вигляд кнопки при натисканні */
-        .search-button:active {
+        /*.search-button:active {
             background-color: #004080;
-        }
+        }*/
 .mainTextDiv {
     position:center;
 }
 .mainText{
+}
+.center {
+    border: 5px solid;
+    margin: auto;
+    width: 15%;
+    padding: 10px;
+}
+
+.login-text{
+    margin-bottom: 5px;
+}
+
+.login-input{
+    margin-bottom: 10px;
+}
+.center-form {
+    margin: auto;
+    width: 15%;
+    padding: 10px;
+}
+
+.user-img{
+    margin-right: 35px;
+}
+
+.info-div{
+    margin: 15px;
+    text-align: right;
 }

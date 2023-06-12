@@ -6,10 +6,11 @@ namespace SocialAnalyzer.services.TikTok
 {
     public class GetMainTikTokInfo
     {
-        public static async Task<TikTokUser> GetName(string name)
+        public static TikTokUser GetName(string name)
         {
             string url = ("https://www.tiktok.com/@" + name);
             TikTokUser user = new TikTokUser();
+            TikTokVideo video = GetVideoInfo.GetVideoStats(GetVideoUrl.GetLink(url));
             try
             {
                 HtmlWeb web = new HtmlWeb();
@@ -23,11 +24,10 @@ namespace SocialAnalyzer.services.TikTok
                 user.userImg = doc.DocumentNode.SelectNodes(".//img[@class='tiktok-1zpj2q-ImgAvatar e1e9er4e1']")
                     .First()
                     .Attributes["src"].Value;
-                user.userAwgViews = AvgViews.GetAvgViews(url);
-                user.userAwgLikes = AvgLikes.GetAvgLikes(url);
-                user.userAwgComments = AvgComments.GetAvgComments(url);
-                user.userAwgViewsToLikes = AvgLikesToViews.LikesToViews(url);
-                //user.userLastMonthFollowers = LastFollowers.GetLastMonthFollowersCount(name);
+                user.userAvgViews = AvgViews.GetAvgViews(url);
+                user.userAvgComments = video.CommentsCount;
+                user.userAvgViewsToLikes = AvgLikesToViews.LikesToViews(video, user.userAvgViews);
+                user.userAvgEngagement = UserEngagement.GetUserEngagement(video, user.userAvgViews);
 
             }
             catch (Exception ex)
