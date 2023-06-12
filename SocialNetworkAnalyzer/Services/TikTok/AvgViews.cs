@@ -13,6 +13,7 @@ namespace SocialNetworkAnalyzer.Services.TikTok
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc = web.Load(url);
             var videoViews = doc.DocumentNode.SelectNodes(".//strong[@data-e2e='video-views']");
+
             List<int> avgViewsCount = new List<int>();
             foreach (var views in videoViews)
             {

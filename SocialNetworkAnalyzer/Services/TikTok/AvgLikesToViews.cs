@@ -1,14 +1,13 @@
-﻿using SocialNetworkAnalyzer.Services.TikTok;
+﻿using SocialAnalyzer.models;
+using SocialNetworkAnalyzer.Services.TikTok;
 
 namespace SocialNetworkAnalyzer.Services.TikTok
 {
     public class AvgLikesToViews
     {
-        public static int LikesToViews(string url)
+        public static int LikesToViews(TikTokVideo video, int averageViews)
         {
-            int likes = AvgLikes.GetAvgLikes(url);
-            int views = AvgViews.GetAvgViews(url);
-            double average = Convert.ToDouble(likes) / Convert.ToDouble(views);
+            double average = Convert.ToDouble(video.LikesCount) / Convert.ToDouble(averageViews);
             return Convert.ToInt32(average * 100);
         }
     }

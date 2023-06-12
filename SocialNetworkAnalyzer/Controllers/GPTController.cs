@@ -4,6 +4,7 @@ using OpenAI_API.Completions;
 
 namespace SocialNetworkAnalyzer.Controllers
 {
+
     public class GPTController : Controller
     {
         [HttpGet]
@@ -11,7 +12,6 @@ namespace SocialNetworkAnalyzer.Controllers
         public async Task<IActionResult> UseChatGPT(string query)
         {
             string OutPutResult = "";
-            var openai = new OpenAIAPI("***");
             CompletionRequest completionRequest = new CompletionRequest();
             completionRequest.Prompt = query;
             completionRequest.Model = OpenAI_API.Models.Model.DavinciText;
